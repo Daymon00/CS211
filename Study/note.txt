@@ -1,0 +1,5 @@
+ifstream >> cin 
+ifstream >> input 
+ofstream >> output
+
+user info

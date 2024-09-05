@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+int main()
+{
+int wordCount=1;
+int charCount[26]={0};
+int i;
+string line;
+cout<<"Enter line of text : ";
+getline(cin,line); //read string with complete line
+for(i=0;i<(int)line.length();i++) //repeat until end of string
+{
+if(!isalpha(line[i])) //if character is not alphabet, delimited with other characters like space,* etc
+wordCount++; //then count wordcount
+}
+
+if(!isalpha(line[i-1])) //if last character is other than alphabet then wordcount subtracted
+wordCount--;
+cout<<"\nNo.of words in the line is : "<<wordCount<<endl; //printing of word count
+
+//counting of repeated alphabets
+for(i=0;i<(int)line.length();i++) //repeat until end of string
+{
+if(line[i]>=65 && line[i]<=90) //if uppercase alphabet found
+charCount[line[i]-'A']++;
+if(line[i]>=97 && line[i]<=122) //if lower case alpbabet
+charCount[line[i]-'a']++;
+}
+for(i=0;i<26;i++) //repeat until end of string
+if(charCount[i]!=0) //which alphabets has a count more than 0 will be printed
+cout<<(char)(i+'a')<<" Occured "<<charCount[i]<<" times"<<endl;
+
+
+return 0;
+}
